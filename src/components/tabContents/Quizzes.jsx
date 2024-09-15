@@ -7,10 +7,10 @@ function Quizes({ courses }) {
   const navigate = useNavigate();
   const selectedCourse = courses.find(course => course.slug === courseSlug); // Find course by slug
   
-  const handleChapterClick = (chapterName) => {
+  const handleChapterClick = (chapterSlug) => {
     // Navigate to the quiz for the selected chapter
     // navigate(`/quiz/course/${courseSlug}/chapter/${chapterSlug}`);
-    navigate(`/chapter/${chapterName}/quiz`)
+    navigate(`/chapter/${chapterSlug}/quiz`)
   };
 
   return (
@@ -18,7 +18,7 @@ function Quizes({ courses }) {
       <h1 className='heading'>{selectedCourse.course} - Chapters</h1>
       <ul className="bm-chapters-list">
         {selectedCourse.chapters.map((chapter, index) => (
-          <li key={index} onClick={() => handleChapterClick(chapter.chapter)}>
+          <li key={index} onClick={() => handleChapterClick(chapter.slug)}>
             <span><ChapterIcon /> Quiz #{index + 1}</span>
             <p>{chapter.chapter}</p> {/* Displaying chapter name */}
           </li>

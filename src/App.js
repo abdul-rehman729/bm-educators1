@@ -24,13 +24,10 @@ function App() {
           <Route path="/schedule-classes" element={<ScheduleClasses />} />
           <Route path="/online-classes" element={<OnlineCourses />} />
           <Route path="/chapters" element={<Chapter />} />
-          <Route path="/chapter/:chapterName/quiz" element={<QuizPageButtons />} />
-          <Route path="/chapter/:chapterName/revision" element={<RevisionPage data={quizzesData} />} />
-          <Route path="/chapter/:chapterName/test" element={<TestPage data={quizzesData} />} />
-          <Route path="/chapter/:chapterName/practise" element={<PractisePage data={quizzesData} />} />
-
-
-
+          <Route path="/chapter/:chapterSlug/quiz" element={<QuizPageButtons data={quizzesData} />} />
+          <Route path="/chapter/:chapterSlug/revision" element={<RevisionPage data={quizzesData} />} />
+          <Route path="/chapter/:chapterSlug/test" element={<TestPage data={quizzesData} />} />
+          <Route path="/chapter/:chapterSlug/practise" element={<PractisePage data={quizzesData} />} />
 
           <Route path="/chapters/:courseSlug" element={<Quizes courses={quizzesData} />} />
           <Route path="/quiz/course/:courseSlug/chapter/:chapterSlug" element={<Quiz courses={quizzesData} />} />
