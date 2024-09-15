@@ -2,14 +2,15 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ReactComponent as ChapterIcon } from "../../assets/chapter.svg";
 
-function Chapters({ courses }) {
+function Quizes({ courses }) {
   const { courseSlug } = useParams(); // Get the course slug from the URL
   const navigate = useNavigate();
   const selectedCourse = courses.find(course => course.slug === courseSlug); // Find course by slug
   
-  const handleChapterClick = (chapterSlug) => {
+  const handleChapterClick = (chapterName) => {
     // Navigate to the quiz for the selected chapter
-    navigate(`/quiz/course/${courseSlug}/chapter/${chapterSlug}`);
+    // navigate(`/quiz/course/${courseSlug}/chapter/${chapterSlug}`);
+    navigate(`/chapter/${chapterName}/quiz`)
   };
 
   return (
@@ -17,8 +18,8 @@ function Chapters({ courses }) {
       <h1 className='heading'>{selectedCourse.course} - Chapters</h1>
       <ul className="bm-chapters-list">
         {selectedCourse.chapters.map((chapter, index) => (
-          <li key={index} onClick={() => handleChapterClick(chapter.slug)}>
-            <span><ChapterIcon /> Chapter #{index + 1}</span>
+          <li key={index} onClick={() => handleChapterClick(chapter.chapter)}>
+            <span><ChapterIcon /> Quiz #{index + 1}</span>
             <p>{chapter.chapter}</p> {/* Displaying chapter name */}
           </li>
         ))}
@@ -27,4 +28,4 @@ function Chapters({ courses }) {
   );
 }
 
-export default Chapters;
+export default Quizes;

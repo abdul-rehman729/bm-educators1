@@ -3,7 +3,7 @@ import { ReactComponent as QuizIcon } from "../../assets/quiz.svg";
 import quizzesData from '../../assets/data/quizzes.json'; // Import the JSON file
 import { useNavigate } from 'react-router-dom';
 
-function Quizes() {
+function Chapter() {
   const [quizzes, setQuizzes] = useState([]);
   const navigate = useNavigate();
 
@@ -19,12 +19,12 @@ function Quizes() {
   return (
     <div className="bm-courses tab-content">
       <h1 className="heading">
-        My Quizes <QuizIcon />
+        Chapters <QuizIcon />
       </h1>
       <ul className="bm-courses-lists">
         {quizzes.map((quiz, index) => (
           <li key={index} onClick={() => handleCourseClick(quiz.slug)}>
-            <span><p className='quizNo'>Quiz #{index + 1} </p><p className='chaptersNo'>Chapters: {quiz.chapters.length}</p></span> {/* Displaying course number */}
+            <span><p className='quizNo'>Chapter #{index + 1} </p><p className='chaptersNo'>Chapters: {quiz.chapters.length}</p></span> {/* Displaying course number */}
             <p className='quizName'>{quiz.course}</p> {/* Displaying course name */}
           </li>
         ))}
@@ -33,4 +33,4 @@ function Quizes() {
   );
 }
 
-export default Quizes;
+export default Chapter;

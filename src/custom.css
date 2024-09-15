@@ -5,6 +5,9 @@
   display: grid;
   grid-template-columns: 20% 80%;
 }
+body{
+  font-family: 'Poppins' , 'Arial';
+}
 
 .bm-tabs-container{
   margin: 20px;
@@ -87,6 +90,11 @@
   border-radius: 10px;
   transition: 0.3s all ease;
   color: #fff;
+}
+.quiz-buttons{
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .tab.bm-logout:hover {
@@ -347,4 +355,20 @@ h1.heading svg {
     font-size: 16px;
     width: 100%;
   }
+}
+
+/* Quiz chapter button css */
+.quiz-buttons button{
+  background-color: #671da9;
+  border-style: none;
+  font-family: 'Poppins';
+  border-radius: 10px;
+  transition: 0.3s all ease;
+  color: #fff;
+  padding: 13px 50px;
+  cursor: pointer;
+}
+.quiz-buttons button:hover {
+  background-color: #671da9;
+  box-shadow: 0px 0px 10px 1px #ccc;
 }

@@ -60,10 +60,10 @@ function Tabs() {
         </div>
         <div
           className={activeTab === 3 ? "tab active" : "tab"}
-          onClick={() => handleTabClick("/quizes")}  // Route to Quizes
+          onClick={() => handleTabClick("/chapters")} 
         >
           <QuizIcon />
-          My Quizes
+          My Quiz
         </div>
         <div
           className={activeTab === 4 ? "tab active" : "tab"}
