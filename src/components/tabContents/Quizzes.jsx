@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { ReactComponent as ChapterIcon } from "../../assets/chapter.svg";
+import { TimerContext } from '../../Context/TimerContext';
+
 
 function Quizes({ courses }) {
-  const { courseSlug } = useParams(); // Get the course slug from the URL
+  const { courseSlug } = useParams();
+ 
+  // Get the course slug from the URL
   const navigate = useNavigate();
   const selectedCourse = courses.find(course => course.slug === courseSlug); // Find course by slug
   
@@ -12,6 +16,13 @@ function Quizes({ courses }) {
     // navigate(`/quiz/course/${courseSlug}/chapter/${chapterSlug}`);
     navigate(`/chapter/${chapterSlug}/quiz`)
   };
+
+  //Reset timer if a user move to another quiz
+  const { resetTimer } = useContext(TimerContext);
+  useEffect(() => {
+    resetTimer()
+  }, [])
+  
 
   return (
     <div className="bm-chapters tab-content">
