@@ -12,10 +12,12 @@ import QuizPageButtons from './components/tabContents/QuizPageButtons';
 import RevisionPage from './components/tabContents/QuizContent/RevisionPage';
 import TestPage from './components/tabContents/QuizContent/TestPage';
 import PractisePage from './components/tabContents/QuizContent/PractisePage';
+import { TimerProvider } from './Context/TimerContext';
 
 
 function App() {
   return (
+  <TimerProvider>
     <Router>
       <div className="bm-main">
         <Tabs />
@@ -36,6 +38,7 @@ function App() {
         </Routes>
       </div>
     </Router>
+  </TimerProvider>
   );
 }
 

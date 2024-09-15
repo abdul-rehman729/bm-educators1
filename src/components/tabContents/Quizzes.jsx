@@ -15,7 +15,7 @@ function Quizes({ courses }) {
 
   return (
     <div className="bm-chapters tab-content">
-      <h1 className='heading'>{selectedCourse.course} - Chapters</h1>
+      <h1 className='heading'>{selectedCourse.course} - Quizes</h1>
       <ul className="bm-chapters-list">
         {selectedCourse.chapters.map((chapter, index) => (
           <li key={index} onClick={() => handleChapterClick(chapter.slug)}>

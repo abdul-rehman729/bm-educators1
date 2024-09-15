@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Timer from '../Timer';
 
 
 const PractisePage = ({data}) => {
@@ -37,6 +38,7 @@ const PractisePage = ({data}) => {
 
   return (
     <section>
+      <Timer/>
         <h1>{chapterName}-Practise</h1>
         <form onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
         {quizArray.map((quiz, index) => (
