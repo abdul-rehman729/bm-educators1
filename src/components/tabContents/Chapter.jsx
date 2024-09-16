@@ -13,18 +13,18 @@ function Chapter() {
 
   const handleCourseClick = (courseSlug) => {
     // Navigate to the chapters of the selected course
-    navigate(`/chapters/${courseSlug}`);
+    navigate(`/quizzes/${courseSlug}`);
   };
 
   return (
     <div className="bm-courses tab-content">
       <h1 className="heading">
-        Chapters <QuizIcon />
+        Quizzes <QuizIcon />
       </h1>
       <ul className="bm-courses-lists">
         {quizzes.map((quiz, index) => (
           <li key={index} onClick={() => handleCourseClick(quiz.slug)}>
-            <span><p className='quizNo'>Chapter #{index + 1} </p><p className='chaptersNo'>Chapters: {quiz.chapters.length}</p></span> {/* Displaying course number */}
+            <span><p className='quizNo'>Quiz #{index + 1} </p><p className='chaptersNo'>Chapters: {quiz.chapters.length}</p></span> {/* Displaying course number */}
             <p className='quizName'>{quiz.course}</p> {/* Displaying course name */}
           </li>
         ))}

@@ -1,40 +1,66 @@
-import React, { useContext, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { ReactComponent as ChapterIcon } from "../../assets/chapter.svg";
-import { TimerContext } from '../../Context/TimerContext';
-
+import React, { useContext, useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import QuizOptionsPopup from "./QuizOptionsPopup";
+import { TimerContext } from "../../Context/TimerContext";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {ReactComponent as ChapterIcon} from "../../assets/chapter.svg"
 
 function Quizes({ courses }) {
   const { courseSlug } = useParams();
- 
-  // Get the course slug from the URL
   const navigate = useNavigate();
-  const selectedCourse = courses.find(course => course.slug === courseSlug); // Find course by slug
-  
+  const selectedCourse = courses.find((course) => course.slug === courseSlug);
+
+  // State to handle the popup
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [selectedChapterSlug, setSelectedChapterSlug] = useState(null);
+  const {resetTimerOnly } = useContext(TimerContext);
+
+
   const handleChapterClick = (chapterSlug) => {
-    // Navigate to the quiz for the selected chapter
-    // navigate(`/quiz/course/${courseSlug}/chapter/${chapterSlug}`);
-    navigate(`/chapter/${chapterSlug}/quiz`)
+    // Store the selected chapter and open the popup
+    setSelectedChapterSlug(chapterSlug);
+    setIsPopupOpen(true);
   };
 
-  //Reset timer if a user move to another quiz
-  const { resetTimer } = useContext(TimerContext);
+  const handlePopupClose = () => {
+    setIsPopupOpen(false);
+  };
+
+  const handleOptionSelect = (option) => {
+    // Close the popup and navigate to the selected screen
+    setIsPopupOpen(false);
+    navigate(`/quizzes/${selectedChapterSlug}/${option}`);
+  };
+
+  // Reset timer if a user moves to another quiz
   useEffect(() => {
-    resetTimer()
-  }, [])
-  
+    resetTimerOnly();
+  }, [resetTimerOnly]);
 
   return (
     <div className="bm-chapters tab-content">
-      <h1 className='heading'>{selectedCourse.course} - Quizes</h1>
+      <h1 className="heading">
+        <button className="backButton"  onClick={() => navigate('/quizzes')}>
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
+        Chapters - {selectedCourse.course}
+      </h1>
       <ul className="bm-chapters-list">
         {selectedCourse.chapters.map((chapter, index) => (
           <li key={index} onClick={() => handleChapterClick(chapter.slug)}>
-            <span><ChapterIcon /> Quiz #{index + 1}</span>
-            <p>{chapter.chapter}</p> {/* Displaying chapter name */}
+            <span><ChapterIcon/> Quiz #{index + 1}</span>
+            <p>{chapter.chapter}</p>
           </li>
         ))}
       </ul>
+
+      {/* Popup for selecting options */}
+      <QuizOptionsPopup
+        isOpen={isPopupOpen}
+        onClose={handlePopupClose}
+        onSelect={handleOptionSelect}
+      />
     </div>
   );
 }

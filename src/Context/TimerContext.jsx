@@ -28,12 +28,12 @@ export const TimerProvider = ({ children }) => {
     pause();
   };
 
-  const resetTimer = () => {
+  const resetTimerOnly = () => {
     reset();
   };
 
   return (
-    <TimerContext.Provider value={{ seconds, minutes, hours, startTimer, stopTimer, resetTimer, isTimerActive }}>
+    <TimerContext.Provider value={{ seconds, minutes, hours, startTimer, stopTimer, resetTimerOnly, isTimerActive }}>
       {children}
     </TimerContext.Provider>
   );

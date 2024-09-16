@@ -11,7 +11,7 @@ import Quizes from './components/tabContents/Quizzes';
 import QuizPageButtons from './components/tabContents/QuizPageButtons';
 import RevisionPage from './components/tabContents/QuizContent/RevisionPage';
 import TestPage from './components/tabContents/QuizContent/TestPage';
-import PractisePage from './components/tabContents/QuizContent/PractisePage';
+import PracticePage from './components/tabContents/QuizContent/PracticePage';
 import { TimerProvider } from './Context/TimerContext';
 
 
@@ -25,13 +25,13 @@ function App() {
           <Route path="/dashboard" element={<div>Dashboard</div>} />
           <Route path="/schedule-classes" element={<ScheduleClasses />} />
           <Route path="/online-classes" element={<OnlineCourses />} />
-          <Route path="/chapters" element={<Chapter />} />
-          <Route path="/chapter/:chapterSlug/quiz" element={<QuizPageButtons data={quizzesData} />} />
-          <Route path="/chapter/:chapterSlug/revision" element={<RevisionPage data={quizzesData} />} />
-          <Route path="/chapter/:chapterSlug/test" element={<TestPage data={quizzesData} />} />
-          <Route path="/chapter/:chapterSlug/practise" element={<PractisePage data={quizzesData} />} />
+          <Route path="/quizzes" element={<Chapter />} />
+          <Route path="/quizzes/:chapterSlug/quiz" element={<QuizPageButtons data={quizzesData} />} />
+          <Route path="/quizzes/:chapterSlug/revision" element={<RevisionPage data={quizzesData} />} />
+          <Route path="/quizzes/:chapterSlug/test" element={<TestPage data={quizzesData} />} />
+          <Route path="/quizzes/:chapterSlug/practice" element={<PracticePage data={quizzesData} />} />
 
-          <Route path="/chapters/:courseSlug" element={<Quizes courses={quizzesData} />} />
+          <Route path="/quizzes/:courseSlug" element={<Quizes courses={quizzesData} />} />
           <Route path="/quiz/course/:courseSlug/chapter/:chapterSlug" element={<Quiz courses={quizzesData} />} />
           
           <Route path="/progress" element={<div>Progress</div>} />

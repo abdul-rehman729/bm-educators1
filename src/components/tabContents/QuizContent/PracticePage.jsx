@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useStopwatch } from 'react-timer-hook'; // Use react-timer-hook
 
-const TestPage = ({ data }) => {
+const PractisePage = ({ data }) => {
   const { chapterSlug } = useParams();
   const { seconds, minutes, hours, start, reset } = useStopwatch({ autoStart: false });
 
@@ -28,7 +28,9 @@ const TestPage = ({ data }) => {
   };
 
   const quizArray = findChapter();
+
   const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [submitted, setSubmitted] = useState(false);
 
   const handleOptionChange = (questionIndex, option) => {
     setSelectedAnswers({
@@ -38,17 +40,16 @@ const TestPage = ({ data }) => {
   };
 
   const handleSubmit = () => {
-    reset(); // Stop the timer when the quiz is submitted
-    alert("Quiz submitted!!");
+    setSubmitted(true);
   };
 
   return (
-    <section className='testPageContent'>
+    <section className='practicePageContent'>
       <div>
         <h3>Time Elapsed: {hours}:{minutes}:{seconds < 10 ? `0${seconds}` : seconds}</h3>
       </div>
 
-      <h1>{chapterName} - Test</h1>
+      <h1>{chapterName} - Practise</h1>
       <form
         onSubmit={(e) => {
           e.preventDefault();
@@ -70,6 +71,13 @@ const TestPage = ({ data }) => {
                 {option}
               </label>
             ))}
+            {submitted && (
+              <p className="bm-feedback">
+                {selectedAnswers[index] === quiz.answer
+                  ? 'Correct!'
+                  : `Wrong! The correct answer is ${quiz.answer}`}
+              </p>
+            )}
           </div>
         ))}
         <button type="submit">Submit Quiz</button>
@@ -78,4 +86,4 @@ const TestPage = ({ data }) => {
   );
 };
 
-export default TestPage;
+export default PractisePage;
