@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useStopwatch } from "react-timer-hook";
 import { ReactComponent as LangIcon } from "../../../assets/language.svg";
+import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const PracticePage = ({ data }) => {
   const { chapterSlug } = useParams();
@@ -34,29 +36,45 @@ const PracticePage = ({ data }) => {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState(0); // To track the current slide (question)
-
-  useEffect(() => {
-    if (submitted) {
-      alert("Test has been submitted");
-    }
-  }, [submitted]);
+  const [unansweredQuestions, setUnansweredQuestions] = useState({}); // To keep track of unanswered questions
 
   const handleOptionChange = (questionIndex, option) => {
     setSelectedAnswers({
       ...selectedAnswers,
       [questionIndex]: option,
     });
+
+    // Mark the question as answered when user selects an option
+    setUnansweredQuestions((prev) => {
+      const updated = { ...prev };
+      delete updated[questionIndex];
+      return updated;
+    });
   };
 
   const handleSubmit = () => {
-    setSubmitted(true); // Trigger submission only when Submit button is clicked
+    const unanswered = {};
+
+    // Check for any unanswered questions
+    quizArray.forEach((_, index) => {
+      if (!selectedAnswers[index]) {
+        unanswered[index] = true;
+      }
+    });
+
+    if (Object.keys(unanswered).length > 0) {
+      // If there are unanswered questions, take the user to the first one and display a message
+      setUnansweredQuestions(unanswered);
+      setCurrentQuestion(parseInt(Object.keys(unanswered)[0], 10));
+    } else {
+      setSubmitted(true); // Proceed with submission only if all questions are answered
+      alert("Test has been submitted");
+    }
   };
 
   // Handle Next/Previous navigation
   const handleNextQuestion = () => {
-    if (currentQuestion < quizArray.length - 1) {
-      setCurrentQuestion((prev) => prev + 1); // Move to the next question
-    }
+    setCurrentQuestion((prev) => Math.min(prev + 1, quizArray.length - 1)); // Move to the next question
   };
 
   const handlePreviousQuestion = () => {
@@ -79,7 +97,9 @@ const PracticePage = ({ data }) => {
           </div>
         </div>
       </div>
-
+      {unansweredQuestions[currentQuestion] && (
+        <p className="unanswered-error">Please select an option</p>
+      )}
       <div className="bm-question">
         <h4>
           Q#{currentQuestion + 1}: {quizArray[currentQuestion].question}
@@ -87,7 +107,12 @@ const PracticePage = ({ data }) => {
         <img src={quizArray[currentQuestion].image} alt="Question related" />
         <div className="questionMcqs">
           {quizArray[currentQuestion].options.map((option) => (
-            <label key={option}>
+            <label
+              key={option}
+              className={
+                selectedAnswers[currentQuestion] === option ? "active" : ""
+              }
+            >
               <input
                 type="radio"
                 name={`question-${currentQuestion}`}
@@ -95,6 +120,9 @@ const PracticePage = ({ data }) => {
                 checked={selectedAnswers[currentQuestion] === option}
                 onChange={() => handleOptionChange(currentQuestion, option)}
               />
+              <span className="checkmark">
+                <FontAwesomeIcon icon={faCheck} />
+              </span>
               {option}
             </label>
           ))}
@@ -121,7 +149,7 @@ const PracticePage = ({ data }) => {
             Next
           </button>
         ) : (
-          <button className="submitBtn" type="submit" onClick={handleSubmit}>
+          <button className="submitBtn" type="button" onClick={handleSubmit}>
             Submit Quiz
           </button>
         )}

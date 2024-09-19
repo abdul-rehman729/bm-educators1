@@ -15,7 +15,7 @@ function Tabs() {
 
   // A mapping of paths to tab indices
   const tabPathMapping = {
-    "/dashboard": 0,
+    "/": 0,
     "/schedule-classes": 1,
     "/online-classes": 2,
     "/quizzes": 3,
@@ -25,7 +25,11 @@ function Tabs() {
   };
 
   // Determine which tab is active based on the URL path
-  const activeTab = Object.keys(tabPathMapping).some(path => location.pathname.includes('/quizzes')) ? 3 : tabPathMapping[location.pathname] || 0;
+  const activeTab = Object.keys(tabPathMapping).some((path) =>
+    location.pathname.includes("/quizzes")
+  )
+    ? 3
+    : tabPathMapping[location.pathname] || 0;
 
   const handleTabClick = (path) => {
     navigate(path); // Navigate to the corresponding route
@@ -41,7 +45,7 @@ function Tabs() {
         {/* Tabs for navigation */}
         <div
           className={activeTab === 0 ? "tab active" : "tab"}
-          onClick={() => handleTabClick("/dashboard")} // Route to Dashboard
+          onClick={() => handleTabClick("/")} // Route to Dashboard
         >
           <HomeIcon />
           Dashboard
