@@ -22,7 +22,7 @@ function App() {
       <div className="bm-main">
         <Tabs />
         <Routes>
-          <Route path="/dashboard" element={<div>Dashboard</div>} />
+          <Route path="/" element={<div>Dashboard</div>} />
           <Route path="/schedule-classes" element={<ScheduleClasses />} />
           <Route path="/online-classes" element={<OnlineCourses />} />
           <Route path="/quizzes" element={<Chapter />} />

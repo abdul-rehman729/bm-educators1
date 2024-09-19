@@ -9,12 +9,32 @@
         "quiz": [
           {
             "question": "What is the maximum speed of a moped?",
-            "options": ["25 km/h", "45 km/h", "60 km/h"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["25 km/h", "35 km/h", "45 km/h", "60 km/h"],
             "answer": "45 km/h"
           },
           {
             "question": "Which type of fuel does a moped use?",
-            "options": ["Diesel", "Electric", "Gasoline"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Diesel", "Electric", "Gasoline", "Ethanol"],
+            "answer": "Gasoline"
+          },
+          {
+            "question": "Which type of fuel does a moped use?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Diesel", "Electric", "Gasoline", "Ethanol"],
+            "answer": "Gasoline"
+          },
+          {
+            "question": "Which type of fuel does a moped use?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Diesel", "Electric", "Gasoline", "Ethanol"],
+            "answer": "Gasoline"
+          },
+          {
+            "question": "Which type of fuel does a moped use?",
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Diesel", "Electric", "Gasoline", "Ethanol"],
             "answer": "Gasoline"
           }
         ]
@@ -25,7 +45,8 @@
         "quiz": [
           {
             "question": "What does a red circular sign indicate?",
-            "options": ["Warning", "Prohibition", "Information"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Warning", "Prohibition", "Information", "Mandatory"],
             "answer": "Prohibition"
           }
         ]
@@ -42,7 +63,8 @@
         "quiz": [
           {
             "question": "What is the minimum age to obtain a car license?",
-            "options": ["16", "18", "21"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["16", "18", "20", "21"],
             "answer": "18"
           }
         ]
@@ -53,7 +75,8 @@
         "quiz": [
           {
             "question": "What is the legal distance to park from a crosswalk?",
-            "options": ["5 meters", "10 meters", "15 meters"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["5 meters", "7 meters", "10 meters", "15 meters"],
             "answer": "5 meters"
           }
         ]
@@ -70,7 +93,8 @@
         "quiz": [
           {
             "question": "What is the maximum legal load for a truck?",
-            "options": ["20 tons", "30 tons", "40 tons"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["20 tons", "25 tons", "30 tons", "40 tons"],
             "answer": "40 tons"
           }
         ]
@@ -81,7 +105,8 @@
         "quiz": [
           {
             "question": "What is the turning radius of a typical heavy truck?",
-            "options": ["10 meters", "15 meters", "20 meters"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["10 meters", "15 meters", "20 meters", "25 meters"],
             "answer": "20 meters"
           }
         ]
@@ -98,7 +123,8 @@
         "quiz": [
           {
             "question": "What is the legal number of passengers allowed on a bus?",
-            "options": ["50", "70", "90"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["50", "60", "70", "90"],
             "answer": "70"
           }
         ]
@@ -109,7 +135,8 @@
         "quiz": [
           {
             "question": "What should a driver do in case of a fire on a bus?",
-            "options": ["Evacuate passengers", "Drive to the nearest fire station", "Continue driving"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Evacuate passengers", "Drive to the nearest fire station", "Continue driving", "Call emergency services"],
             "answer": "Evacuate passengers"
           }
         ]
@@ -126,7 +153,8 @@
         "quiz": [
           {
             "question": "What is the maximum length of an articulated vehicle?",
-            "options": ["15 meters", "20 meters", "25 meters"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["15 meters", "20 meters", "25 meters", "30 meters"],
             "answer": "25 meters"
           }
         ]
@@ -137,7 +165,8 @@
         "quiz": [
           {
             "question": "What is the safe speed for towing a trailer?",
-            "options": ["60 km/h", "80 km/h", "100 km/h"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["60 km/h", "70 km/h", "80 km/h", "90 km/h"],
             "answer": "80 km/h"
           }
         ]
@@ -154,7 +183,8 @@
         "quiz": [
           {
             "question": "What is the engine capacity limit for A1 motorcycles?",
-            "options": ["125 cc", "250 cc", "500 cc"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["100 cc", "125 cc", "200 cc", "250 cc"],
             "answer": "125 cc"
           }
         ]
@@ -165,7 +195,8 @@
         "quiz": [
           {
             "question": "What is the correct posture for riding a motorcycle?",
-            "options": ["Leaning forward", "Straight posture", "Leaning backward"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Leaning forward", "Straight posture", "Leaning backward", "Standing upright"],
             "answer": "Straight posture"
           }
         ]
@@ -182,7 +213,8 @@
         "quiz": [
           {
             "question": "What is the maximum speed allowed for A2 motorcycles?",
-            "options": ["120 km/h", "140 km/h", "160 km/h"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["100 km/h", "120 km/h", "140 km/h", "160 km/h"],
             "answer": "120 km/h"
           }
         ]
@@ -193,7 +225,8 @@
         "quiz": [
           {
             "question": "Which technique is most effective for high-speed cornering?",
-            "options": ["Leaning into the turn", "Leaning away from the turn", "Standing upright"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Leaning into the turn", "Leaning away from the turn", "Standing upright", "Slowing down"],
             "answer": "Leaning into the turn"
           }
         ]
@@ -210,7 +243,8 @@
         "quiz": [
           {
             "question": "What should you do to improve visibility when driving at night?",
-            "options": ["Use high beams", "Turn on interior lights", "Drive faster"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Use high beams", "Turn on interior lights", "Drive faster", "Use fog lights"],
             "answer": "Use high beams"
           }
         ]
@@ -221,7 +255,8 @@
         "quiz": [
           {
             "question": "What is the safest way to avoid fatigue when driving at night?",
-            "options": ["Take frequent breaks", "Drink coffee", "Turn up the radio"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["Take frequent breaks", "Drink coffee", "Turn up the radio", "Open the window"],
             "answer": "Take frequent breaks"
           }
         ]
@@ -238,7 +273,8 @@
         "quiz": [
           {
             "question": "What is the speed limit on most highways?",
-            "options": ["100 km/h", "120 km/h", "140 km/h"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["100 km/h", "110 km/h", "120 km/h", "130 km/h"],
             "answer": "120 km/h"
           }
         ]
@@ -249,7 +285,8 @@
         "quiz": [
           {
             "question": "When is it safe to overtake another vehicle?",
-            "options": ["When there are no oncoming vehicles", "Anytime", "In a curve"],
+            "image": "https://abdul-rehman729.github.io/hosted-files/geometery.svg",
+            "options": ["When there are no oncoming vehicles", "When you are on a straight road", "In a curve", "When the vehicle in front is driving slowly"],
             "answer": "When there are no oncoming vehicles"
           }
         ]
@@ -257,3 +294,4 @@
     ]
   }
 ]
+
