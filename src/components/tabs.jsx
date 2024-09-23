@@ -36,51 +36,53 @@ function Tabs() {
   };
 
   return (
-    <div className="bm-tabs-container">
-      <div className="bm-tabs-header">
-        <div className="bm-logo">
-          <img src={logo} alt="" />
-        </div>
+    <div className="bm-main">
+      <div className="bm-tabs-container">
+        <div className="bm-tabs-header">
+          <div className="bm-logo">
+            <img src={logo} alt="" />
+          </div>
 
-        {/* Tabs for navigation */}
-        <div
-          className={activeTab === 0 ? "tab active" : "tab"}
-          onClick={() => handleTabClick("/")} // Route to Dashboard
-        >
-          <HomeIcon />
-          Dashboard
-        </div>
-        <div
-          className={activeTab === 1 ? "tab active" : "tab"}
-          onClick={() => handleTabClick("/schedule-classes")} // Route to Schedule Classes
-        >
-          <ScheduleIcon />
-          Schedule Classes
-        </div>
-        <div
-          className={activeTab === 2 ? "tab active" : "tab"}
-          onClick={() => handleTabClick("/online-classes")} // Route to Online Classes
-        >
-          <OnlineIcon />
-          Online Classes
-        </div>
-        <div
-          className={activeTab === 3 ? "tab active" : "tab"}
-          onClick={() => handleTabClick("/quizzes")}
-        >
-          <QuizIcon />
-          My Quiz
-        </div>
-        <div
-          className={activeTab === 4 ? "tab active" : "tab"}
-          onClick={() => handleTabClick("/progress")} // Route to Progress
-        >
-          <ProgressIcon />
-          My Progress
-        </div>
-        <div className="tab bm-logout">
-          <LogoutIcon />
-          Logout
+          {/* Tabs for navigation */}
+          <div
+            className={activeTab === 0 ? "tab active" : "tab"}
+            onClick={() => handleTabClick("/")} // Route to Dashboard
+          >
+            <HomeIcon />
+            Dashboard
+          </div>
+          <div
+            className={activeTab === 1 ? "tab active" : "tab"}
+            onClick={() => handleTabClick("/schedule-classes")} // Route to Schedule Classes
+          >
+            <ScheduleIcon />
+            Schedule Classes
+          </div>
+          <div
+            className={activeTab === 2 ? "tab active" : "tab"}
+            onClick={() => handleTabClick("/online-classes")} // Route to Online Classes
+          >
+            <OnlineIcon />
+            Online Classes
+          </div>
+          <div
+            className={activeTab === 3 ? "tab active" : "tab"}
+            onClick={() => handleTabClick("/quizzes")}
+          >
+            <QuizIcon />
+            My Quiz
+          </div>
+          <div
+            className={activeTab === 4 ? "tab active" : "tab"}
+            onClick={() => handleTabClick("/progress")} // Route to Progress
+          >
+            <ProgressIcon />
+            My Progress
+          </div>
+          <div className="tab bm-logout">
+            <LogoutIcon />
+            Logout
+          </div>
         </div>
       </div>
     </div>

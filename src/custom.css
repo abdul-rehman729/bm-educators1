@@ -9,16 +9,116 @@ body {
   font-family: "Poppins", "Arial";
 }
 
+.bm-login{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bm-login .login-box{
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 1px #ccc;
+  width: 400px;
+}
+
+.bm-login .login-box .logo{
+  width: 220px;
+}
+
+.bm-login .login-box .heading{
+  margin: 20px 0px;
+}
+
+.bm-login .login-box .heading h1{
+  margin: 0;
+  font-size: 45px;
+}
+
+.bm-login .login-box .heading p{
+  margin: 0;
+  font-size: 12px;
+  color: #aaa;
+}
+
+.bm-login .login-box .heading p button{
+  padding: 0;
+  background: transparent;
+  border: none;
+  font-size: 12px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  text-decoration: underline;
+  color: #671da9;
+  cursor: pointer;
+}
+
+.bm-login .login-box .login-form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bm-login .login-box .login-form .field{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bm-login .login-box .login-form .field-row{
+  display: grid;
+  grid-template-columns: 48% 48%;
+  justify-content: space-between;
+}
+
+.bm-login .login-box .login-form .field label{
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.bm-login .login-box .login-form .field input{
+  border: none;
+  background-color: #eee;
+  padding: 12px 16px;
+  border-radius: 7px;
+  font-family: "Poppins";
+}
+
+.bm-login .login-box .login-form .field input:focus{
+  outline: 2px solid #ccc;
+}
+
+.bm-login .login-box .login-form button[type='submit']{
+  padding: 12px 16px;
+  margin-top: 10px;
+  border: none;
+  background-color: #671da9;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Poppins";
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s all;
+}
+
+.bm-login .login-box .login-form button[type='submit']:hover{
+  box-shadow: 0px 0px 10px 1px #671da9;
+}
+
 .bm-tabs-container {
-  /* margin: 20px; */
+  position: sticky;
+  top: 0;
   height: 100vh;
 }
 
-.bm-tabs-header {
+.bm-tabs-container .bm-tabs-header {
   display: flex;
   flex-direction: column;
-  padding: 20px 0px;
-  position: relative;
+  position: sticky;
+  top: 0;
   height: 100vh;
 }
 
@@ -70,7 +170,7 @@ body {
 .bm-logo {
   width: 100%;
   text-align: center;
-  margin-bottom: 30px;
+  margin: 30px 0px;
 }
 
 .bm-logo img {
@@ -510,7 +610,7 @@ h1.heading svg {
   box-shadow: 0px 0px 10px 1px #ccc;
 }
 
-.headingTimer {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -521,7 +621,7 @@ h1.heading svg {
   overflow: hidden;
 }
 
-.headingTimer h1 {
+.header h1 {
   margin: 0;
   color: #fff;
   font-weight: 600;
@@ -529,21 +629,21 @@ h1.heading svg {
   padding: 10px;
 }
 
-.headingTimer h1.timer {
+.header h1.timer {
   background-color: #f34642;
   border-radius: 8px;
 }
 
-.headingTimer h1.timer span {
+.header h1.timer span {
   display: inline-flex;
 }
 
-.headingTimer .timerLang {
+.header .timerLang {
   display: flex;
   gap: 10px;
 }
 
-.headingTimer .timerLang .langBtn {
+.header .timerLang .langBtn {
   width: 60px;
   background: #0b57d0;
   border-radius: 8px;
@@ -554,11 +654,11 @@ h1.heading svg {
   transition: 0.3s all;
 }
 
-.headingTimer .timerLang .langBtn:hover {
+.header .timerLang .langBtn:hover {
   box-shadow: 0px 0px 10px 1px #0b57d0;
 }
 
-.headingTimer .timerLang .langBtn svg {
+.header .timerLang .langBtn svg {
   width: 40px;
   fill: #fff;
 }
@@ -709,15 +809,59 @@ h1.heading svg {
   border-radius: 10px;
 }
 
-.navigation-buttons {
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+.footer .questions-status {
+  display: flex;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.footer .questions-status .counts {
+  width: 50px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer .questions-status .counts.missed-questions {
+  background-color: #ffc400;
+}
+
+.footer .questions-status .counts.wrong-answers {
+  background-color: #f34642;
+  color: #fff;
+}
+
+.footer .questions-status .counts.correct-answers {
+  background-color: #1da923;
+  color: #fff;
+}
+
+.footer .questions-status span {
+  font-size: 12px;
+}
+
+.footer .questions-status p {
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.footer .navigation-buttons {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin: 10px;
   gap: 10px;
 }
 
-.navigation-buttons button {
+.footer .navigation-buttons button {
   border: none;
   padding: 10px 16px;
   border-radius: 7px;
@@ -728,19 +872,19 @@ h1.heading svg {
   height: fit-content;
 }
 
-.navigation-buttons button.nextBtn {
+.footer .navigation-buttons button.nextBtn {
   background-color: #1da923;
 }
 
-.navigation-buttons button.prevBtn {
+.footer .navigation-buttons button.prevBtn {
   background-color: #f34642;
 }
 
-.navigation-buttons button.nextBtn:hover {
+.footer .navigation-buttons button.nextBtn:hover {
   box-shadow: 0px 0px 10px 1px #1da923;
 }
 
-.navigation-buttons button.prevBtn:hover {
+.footer .navigation-buttons button.prevBtn:hover {
   box-shadow: 0px 0px 10px 1px #f34642;
 }
 
