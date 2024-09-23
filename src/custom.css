@@ -9,7 +9,7 @@ body {
   font-family: "Poppins", "Arial";
 }
 
-.bm-login{
+.bm-login {
   height: 100vh;
   width: 100%;
   display: flex;
@@ -17,68 +17,68 @@ body {
   align-items: center;
 }
 
-.bm-login .login-box{
+.bm-login .login-box {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px 1px #ccc;
   width: 400px;
 }
 
-.bm-login .login-box .logo{
+.bm-login .login-box .logo {
   width: 220px;
 }
 
-.bm-login .login-box .heading{
+.bm-login .login-box .heading {
   margin: 20px 0px;
 }
 
-.bm-login .login-box .heading h1{
+.bm-login .login-box .heading h1 {
   margin: 0;
   font-size: 45px;
 }
 
-.bm-login .login-box .heading p{
+.bm-login .login-box .heading p {
   margin: 0;
   font-size: 12px;
   color: #aaa;
 }
 
-.bm-login .login-box .heading p button{
+.bm-login .login-box .heading p button {
   padding: 0;
   background: transparent;
   border: none;
   font-size: 12px;
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 600;
   text-decoration: underline;
   color: #671da9;
   cursor: pointer;
 }
 
-.bm-login .login-box .login-form{
+.bm-login .login-box .login-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.bm-login .login-box .login-form .field{
+.bm-login .login-box .login-form .field {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.bm-login .login-box .login-form .field-row{
+.bm-login .login-box .login-form .field-row {
   display: grid;
   grid-template-columns: 48% 48%;
   justify-content: space-between;
 }
 
-.bm-login .login-box .login-form .field label{
+.bm-login .login-box .login-form .field label {
   font-size: 14px;
   font-weight: 600;
 }
 
-.bm-login .login-box .login-form .field input{
+.bm-login .login-box .login-form .field input {
   border: none;
   background-color: #eee;
   padding: 12px 16px;
@@ -86,11 +86,11 @@ body {
   font-family: "Poppins";
 }
 
-.bm-login .login-box .login-form .field input:focus{
+.bm-login .login-box .login-form .field input:focus {
   outline: 2px solid #ccc;
 }
 
-.bm-login .login-box .login-form button[type='submit']{
+.bm-login .login-box .login-form button[type="submit"] {
   padding: 12px 16px;
   margin-top: 10px;
   border: none;
@@ -104,7 +104,7 @@ body {
   transition: 0.3s all;
 }
 
-.bm-login .login-box .login-form button[type='submit']:hover{
+.bm-login .login-box .login-form button[type="submit"]:hover {
   box-shadow: 0px 0px 10px 1px #671da9;
 }
 
@@ -160,7 +160,7 @@ body {
   background-color: #f9f9f9;
   border: 1px solid #ddd;
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .bm-tab-content {
@@ -178,6 +178,7 @@ body {
 }
 
 .tab.bm-logout {
+  border: none;
   position: absolute;
   padding: 10px 0px;
   width: 80%;
@@ -191,6 +192,7 @@ body {
   transition: 0.3s all ease;
   color: #fff;
 }
+
 .quiz-buttons {
   display: flex;
   gap: 2rem;
@@ -198,8 +200,7 @@ body {
 }
 
 .tab.bm-logout:hover {
-  background-color: #671da9;
-  box-shadow: 0px 0px 10px 1px #ccc;
+  box-shadow: 0px 0px 10px 1px #671da9;
 }
 
 .tab.bm-logout svg {
@@ -743,6 +744,7 @@ h1.heading svg {
   background-color: #1da923;
   cursor: pointer;
   transition: 0.3s all;
+  margin: 10px;
 }
 
 .quizPageContent button.submitBtn:hover {

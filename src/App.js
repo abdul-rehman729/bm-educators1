@@ -13,56 +13,69 @@ import RevisionPage from "./components/tabContents/QuizContent/RevisionPage";
 import TestPage from "./components/tabContents/QuizContent/TestPage";
 import PracticePage from "./components/tabContents/QuizContent/PracticePage";
 import Login from "./components/login/login";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
 
   const [isLogin, setIsLogin] = useState(false);
 
+  useEffect(() => {
+    const storedLoginState = localStorage.getItem("isLogin");
+    if (storedLoginState === "true") {
+      setIsLogin(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("isLogin", isLogin);
+  }, [isLogin]);
+
   return (
-    <Router>
-      {isLogin ? <Tabs /> : null} {/* Show Tabs if logged in */}
-      
-      <Routes>
-        {/* Show Login Route when not logged in */}
-        {!isLogin ? (
-          <Route path="/" element={<Login setIsLogin={setIsLogin} />} />
-        ) : (
-          <>
-            {/* Dashboard and Protected Routes when logged in */}
-            <Route path="/" element={<div>Dashboard</div>} />
-            <Route path="/schedule-classes" element={<ScheduleClasses />} />
-            <Route path="/online-classes" element={<OnlineCourses />} />
-            <Route path="/quizzes" element={<Chapter />} />
-            <Route
-              path="/quizzes/:chapterSlug/quiz"
-              element={<QuizPageButtons data={quizzesData} />}
-            />
-            <Route
-              path="/quizzes/:chapterSlug/revision"
-              element={<RevisionPage data={quizzesData} />}
-            />
-            <Route
-              path="/quizzes/:chapterSlug/test"
-              element={<TestPage data={quizzesData} />}
-            />
-            <Route
-              path="/quizzes/:chapterSlug/practice"
-              element={<PracticePage data={quizzesData} />}
-            />
-            <Route
-              path="/quizzes/:courseSlug"
-              element={<Quizes courses={quizzesData} />}
-            />
-            <Route
-              path="/quiz/course/:courseSlug/chapter/:chapterSlug"
-              element={<Quiz courses={quizzesData} />}
-            />
-            <Route path="/progress" element={<div>Progress</div>} />
-          </>
-        )}
-      </Routes>
-    </Router>
+    <div className={isLogin ? "bm-main" : ""}>
+      <Router>
+        {isLogin ? <Tabs setIsLogin={setIsLogin} /> : null} {/* Show Tabs if logged in */}
+
+        <Routes>
+          {/* Show Login Route when not logged in */}
+          {!isLogin ? (
+            <Route path="/" element={<Login setIsLogin={setIsLogin} />} />
+          ) : (
+            <>
+              {/* Dashboard and Protected Routes when logged in */}
+              <Route path="/" element={<div className="tab-content"><h1>Dashboard</h1></div>} />
+              <Route path="/schedule-classes" element={<ScheduleClasses />} />
+              <Route path="/online-classes" element={<OnlineCourses />} />
+              <Route path="/quizzes" element={<Chapter />} />
+              <Route
+                path="/quizzes/:chapterSlug/quiz"
+                element={<QuizPageButtons data={quizzesData} />}
+              />
+              <Route
+                path="/quizzes/:chapterSlug/revision"
+                element={<RevisionPage data={quizzesData} />}
+              />
+              <Route
+                path="/quizzes/:chapterSlug/test"
+                element={<TestPage data={quizzesData} />}
+              />
+              <Route
+                path="/quizzes/:chapterSlug/practice"
+                element={<PracticePage data={quizzesData} />}
+              />
+              <Route
+                path="/quizzes/:courseSlug"
+                element={<Quizes courses={quizzesData} />}
+              />
+              <Route
+                path="/quiz/course/:courseSlug/chapter/:chapterSlug"
+                element={<Quiz courses={quizzesData} />}
+              />
+              <Route path="/progress" element={<div>Progress</div>} />
+            </>
+          )}
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

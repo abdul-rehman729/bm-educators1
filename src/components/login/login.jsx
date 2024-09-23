@@ -15,9 +15,10 @@ function Login({ setIsLogin }) {
     setIsSignupForm(false);
   };
 
-  const handleIsLogin = ()=>{
+  const handleIsLogin = () => {
     setIsLogin(true);
-  }
+    localStorage.setItem("isLogin", true);
+  };
 
   return (
     <>
@@ -30,15 +31,11 @@ function Login({ setIsLogin }) {
               <h1>Login</h1>
               <p>
                 Don't have an account?{" "}
-                <button
-                  onClick={handleSignupForm}
-                >
-                  Sign up
-                </button>
+                <button onClick={handleSignupForm}>Sign up</button>
               </p>
             </div>
 
-            <form action="#" className="login-form">
+            <form action="#" className="login-form" autoComplete="off">
               <div className="field">
                 <label htmlFor="email">Email</label>
                 <input type="email" id="email" placeholder="Enter your email" />
@@ -53,7 +50,9 @@ function Login({ setIsLogin }) {
                 />
               </div>
 
-              <button type="submit" onClick={handleIsLogin}>Login</button>
+              <button type="submit" onClick={handleIsLogin}>
+                Login
+              </button>
             </form>
           </div>
         </div>
@@ -67,7 +66,8 @@ function Login({ setIsLogin }) {
             <div className="heading">
               <h1>Sign up</h1>
               <p>
-                Already have an account? <button onClick={handleLoginForm}>Login</button>
+                Already have an account?{" "}
+                <button onClick={handleLoginForm}>Login</button>
               </p>
             </div>
 
@@ -105,7 +105,9 @@ function Login({ setIsLogin }) {
                 />
               </div>
 
-              <button type="submit" onClick={handleIsLogin}>Sign up</button>
+              <button type="submit" onClick={handleIsLogin}>
+                Sign up
+              </button>
             </form>
           </div>
         </div>

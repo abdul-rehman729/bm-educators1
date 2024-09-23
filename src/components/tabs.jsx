@@ -9,7 +9,7 @@ import { ReactComponent as LogoutIcon } from "../assets/logout.svg";
 import { useNavigate, useLocation } from "react-router-dom"; // Import useNavigate and useLocation
 import "../custom.css";
 
-function Tabs() {
+function Tabs({ setIsLogin }) {
   const navigate = useNavigate(); // Initialize useNavigate for navigation
   const location = useLocation(); // Get the current location (URL)
 
@@ -35,55 +35,59 @@ function Tabs() {
     navigate(path); // Navigate to the corresponding route
   };
 
-  return (
-    <div className="bm-main">
-      <div className="bm-tabs-container">
-        <div className="bm-tabs-header">
-          <div className="bm-logo">
-            <img src={logo} alt="" />
-          </div>
+  const handleLogout = () => {
+    setIsLogin(false);
+    localStorage.setItem("isLogin", false);
+    navigate("/");
+  };
 
-          {/* Tabs for navigation */}
-          <div
-            className={activeTab === 0 ? "tab active" : "tab"}
-            onClick={() => handleTabClick("/")} // Route to Dashboard
-          >
-            <HomeIcon />
-            Dashboard
-          </div>
-          <div
-            className={activeTab === 1 ? "tab active" : "tab"}
-            onClick={() => handleTabClick("/schedule-classes")} // Route to Schedule Classes
-          >
-            <ScheduleIcon />
-            Schedule Classes
-          </div>
-          <div
-            className={activeTab === 2 ? "tab active" : "tab"}
-            onClick={() => handleTabClick("/online-classes")} // Route to Online Classes
-          >
-            <OnlineIcon />
-            Online Classes
-          </div>
-          <div
-            className={activeTab === 3 ? "tab active" : "tab"}
-            onClick={() => handleTabClick("/quizzes")}
-          >
-            <QuizIcon />
-            My Quiz
-          </div>
-          <div
-            className={activeTab === 4 ? "tab active" : "tab"}
-            onClick={() => handleTabClick("/progress")} // Route to Progress
-          >
-            <ProgressIcon />
-            My Progress
-          </div>
-          <div className="tab bm-logout">
-            <LogoutIcon />
-            Logout
-          </div>
+  return (
+    <div className="bm-tabs-container">
+      <div className="bm-tabs-header">
+        <div className="bm-logo">
+          <img src={logo} alt="" />
         </div>
+
+        {/* Tabs for navigation */}
+        <div
+          className={activeTab === 0 ? "tab active" : "tab"}
+          onClick={() => handleTabClick("/")} // Route to Dashboard
+        >
+          <HomeIcon />
+          Dashboard
+        </div>
+        <div
+          className={activeTab === 1 ? "tab active" : "tab"}
+          onClick={() => handleTabClick("/schedule-classes")} // Route to Schedule Classes
+        >
+          <ScheduleIcon />
+          Schedule Classes
+        </div>
+        <div
+          className={activeTab === 2 ? "tab active" : "tab"}
+          onClick={() => handleTabClick("/online-classes")} // Route to Online Classes
+        >
+          <OnlineIcon />
+          Online Classes
+        </div>
+        <div
+          className={activeTab === 3 ? "tab active" : "tab"}
+          onClick={() => handleTabClick("/quizzes")}
+        >
+          <QuizIcon />
+          My Quiz
+        </div>
+        <div
+          className={activeTab === 4 ? "tab active" : "tab"}
+          onClick={() => handleTabClick("/progress")} // Route to Progress
+        >
+          <ProgressIcon />
+          My Progress
+        </div>
+        <button className="tab bm-logout" onClick={handleLogout}>
+          <LogoutIcon />
+          Logout
+        </button>
       </div>
     </div>
   );

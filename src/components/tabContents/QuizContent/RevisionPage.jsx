@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useStopwatch } from "react-timer-hook";
+import { ReactComponent as LangIcon } from "../../../assets/language.svg";
 
 const RevisionPage = ({ data }) => {
   const { chapterSlug } = useParams();
@@ -37,24 +38,36 @@ const RevisionPage = ({ data }) => {
 
   return (
     <section className="quizPageContent revisionPageContent">
-      <div className="headingTimer">
+      <div className="header">
         <h1 className="heading">{chapterName} - Revision</h1>
-        <h1 className="timer">
-          Timer:{" "}
-          <span>
-          {hours < 10 ? `0${hours}` :hours}:{minutes < 10 ? `0${minutes}`: minutes}:{seconds < 10 ? `0${seconds}` : seconds}
-          </span>
-        </h1>
+        <div className="timerLang">
+          <h1 className="timer">
+            Time: {hours < 10 ? `0${hours}` : hours}:
+            {minutes < 10 ? `0${minutes}` : minutes}:
+            {seconds < 10 ? `0${seconds}` : seconds}
+          </h1>
+
+          <div className="langBtn">
+            <LangIcon />
+          </div>
+        </div>
       </div>
       {quizArray.map((quiz, index) => (
         <div key={index} className="bm-question">
-          <h4>Q: {quiz.question}</h4>
-          <p><b>Ans:</b> {quiz.answer}</p>
+          <h4>
+            Q#{index + 1}: {quiz.question}
+          </h4>
+          <p>
+            <b>Ans:</b> {quiz.answer}
+          </p>
         </div>
       ))}
 
       {/* Navigate back to the quizzes for the current course */}
-      <button className="submitBtn" onClick={() => navigate(`/quizzes/${courseSlug}`)}>
+      <button
+        className="submitBtn"
+        onClick={() => navigate(`/quizzes/${courseSlug}`)}
+      >
         Revision Completed
       </button>
     </section>
